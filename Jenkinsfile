@@ -9,6 +9,11 @@ pipeline {
                       sh 'docker build . '
                 }
             }
+             steps {
+                echo '--------Run docker---------'
+                dir ('docker2') {
+                      sh 'docker run -p 5000:5000 '
+                }
         }
     }
 }
