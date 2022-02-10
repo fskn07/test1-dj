@@ -6,13 +6,9 @@ pipeline {
             steps {
                 echo '--------Start building image---------'
                 dir ('docker2') {
-                      sh 'docker build . hellogit'
+                      sh 'docker build . helloworld'
                 }
-            }
-             steps {
-                echo '--------Run docker---------'
-                      sh 'docker run -p 5000:5000 hellogit'
-            }     
+            }    
         }
     }
 }
