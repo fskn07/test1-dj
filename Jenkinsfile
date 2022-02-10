@@ -8,7 +8,7 @@ pipeline {
                 dir ('docker2') {
                       sh 'docker build . '
                 }
-            }
+            }    
         }
     }
 }
