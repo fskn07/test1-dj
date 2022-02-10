@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo '--------Start building image---------'
                 dir ('docker2') {
-                      sh 'docker build -t helloworld . '
+                      sh 'docker build . '
                 }
             }    
         }
