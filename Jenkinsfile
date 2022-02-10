@@ -11,9 +11,7 @@ pipeline {
             }
              steps {
                 echo '--------Run docker---------'
-                dir ('docker2') {
                       sh 'docker run -p 5000:5000 hellogit'
-                }
             }     
         }
     }
