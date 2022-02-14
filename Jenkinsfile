@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo '--------Start building image---------'
                 dir ('docker') {
-                      sh 'docker build . '
+                      sh 'docker build "app:${env.BUILD_ID}" .  '
                 }
             }    
         }
