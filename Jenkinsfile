@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TEST = 'BRANCH'
+        TEST = sh '$BRANCH_NAME'
     }
     stages {
         stage('create docker image') {
@@ -9,7 +9,7 @@ pipeline {
                 echo "Database engine is ${TEST}"
                 echo '--------Start building image---------'
                 dir ('docker') {
-                      sh "docker build -t application-$BRANCH_NAME:$BUILD_NUMBER . "
+                      sh "docker build -t application-$TEST:$BUILD_NUMBER . "
                 }
             }    
         }
