@@ -3,10 +3,10 @@ pipeline {
     stages {
         stage('create docker image') {
             steps {
-                sh "$BRANCH_NAME | perl -ne 'print lc'"
+                sh "NAME=$BRANCH_NAME"
                 echo '--------Start building image---------'
                 dir ('docker') {
-                      sh "docker build -t application-$(git rev-parse --abbrev-ref HEAD | sed 's/[^a-zA-Z0-9]/-/g'):$BUILD_NUMBER . "
+                      sh "docker build -t application-$NAME:$BUILD_NUMBER . "
                 }
             }    
         }
