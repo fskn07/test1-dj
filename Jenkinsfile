@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo '--------Start building image---------'
                 dir ('docker') {
-                      sh "A=git rev-parse --abbrev-ref HEAD"
+                      sh "A='BRANCH'"
                       sh "echo $A"
                       sh "docker build -t application:$BUILD_NUMBER . "
                 }
