@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TEST = sh "$BRANCH_NAME"
+        TEST = $BRANCH_NAME
     }
     stages {
         stage('create docker image') {
