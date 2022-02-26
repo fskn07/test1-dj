@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        QWE = sh '$BRANCH_NAME'
+        QWE = sh 'git rev-parse --abbrev-ref HEAD'
     }
     stages {
         
