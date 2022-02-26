@@ -1,13 +1,12 @@
 pipeline {
     agent any
-
-    stages {
        environment {
           CC = """${sh(
           returnStdout: true,
-          script: 'git rev-parse --abbrev-ref HEAD'
+          script: '$BRANCH_NAME'
             )}"""
     }
+    stages {
         stage('create docker image') {
             steps {
                 echo "Database engine is ${CC}"
