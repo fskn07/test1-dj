@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo '--------Start building image---------'
                 dir ('docker') {
-                      sh "docker build -t application-$GIT_BRANCH:$BUILD_NUMBER . "
+                      sh "docker build -t application:$GIT_BRANCH-$BUILD_NUMBER . "
                 }
             }    
         }
