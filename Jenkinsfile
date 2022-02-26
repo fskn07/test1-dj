@@ -3,7 +3,7 @@ pipeline {
        environment {
           CC = """${sh(
           returnStdout: true,
-          script: '$BRANCH_NAME'
+          script: 'git branch --show-current'
             )}"""
     }
     stages {
