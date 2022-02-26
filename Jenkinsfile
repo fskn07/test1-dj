@@ -3,7 +3,7 @@ pipeline {
        environment {
           CC = """${sh(
           returnStdout: true,
-          script: 'git branch --show-current'
+          script: 'git rev-parse --abbrev-ref HEAD'
             )}"""
     }
     stages {
