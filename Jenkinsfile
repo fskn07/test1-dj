@@ -4,7 +4,7 @@ pipeline {
         stage('create docker image') {
             steps {
                 sh '''NAME=$BRANCH_NAME 
-                    echo "$NAME"
+                    echo "$NAME.toLowerCase()"
                     '''
                 echo '--------Start building image---------'
                 dir ('docker') {
