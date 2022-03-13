@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('create docker image') {
             steps {
-                dir ('docker1') {
+                dir ('docker') {
                       sh "docker build -t application:$GIT_BRANCH-$BUILD_NUMBER . "
                 }
             } 
