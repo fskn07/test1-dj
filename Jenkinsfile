@@ -4,7 +4,7 @@ pipeline {
         stage('create docker image') {
             steps {
                 echo '--------Start building image---------'
-                dir ('docker') {
+                dir ('docker3') {
                       sh "docker build -t application:$GIT_BRANCH-$BUILD_NUMBER . "
                 }
             } 
@@ -17,10 +17,10 @@ pipeline {
         }
      stage('message') {
             steps {
-                   echo 'Hello my Jenkins''
+                   echo 'Hello my Jenkins'
             } 
             post {
-         	failure {
+         	  failure {
          		script {
          			env.STAGEMESSAGE = "Failure at stage MESSAGE"}
          	}
