@@ -17,7 +17,7 @@ pipeline {
         }
      stage('message') {
             steps {
-                   echo 'Hello my Jenkins'
+                   echo 'Hello my Jenkins''
             } 
             post {
          	failure {
