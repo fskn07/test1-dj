@@ -1,9 +1,7 @@
 
 pipeline {
-    environment {
-        STAGEBUILD = ''
-        STAGEMESSAGE = ''
-    }
+        def STAGEBUILD = ''
+        def STAGEMESSAGE = ''
     agent any
     stages {
         stage('create docker image') {
