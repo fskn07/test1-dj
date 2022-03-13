@@ -1,3 +1,5 @@
+env.STAGEBUILD = ''
+env.STAGEMESSAGE = ''
 pipeline {
     agent any
     stages {
