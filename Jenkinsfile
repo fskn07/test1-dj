@@ -24,7 +24,9 @@ pipeline {
             } 
             post {
          	  failure {
+                  script {
          			env.STAGEMESSAGE = "Failure at stage BUILDING2"
+                  }
          	}
          }
         }
