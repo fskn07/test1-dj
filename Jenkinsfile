@@ -3,26 +3,27 @@ pipeline {
     stages {
         stage('create docker image') {
             steps {
-                echo '--------Start building image---------'
-                dir ('docker3') {
+                dir ('docker1') {
                       sh "docker build -t application:$GIT_BRANCH-$BUILD_NUMBER . "
                 }
             } 
             post {
          	failure {
          		script {
-         			env.STAGEBUILD = "Failure at stage BUILDING docker image"}
+         			env.STAGEBUILD = "Failure at stage BUILDING1 docker image"}
          	}
          }
         }
-     stage('message') {
+     stage('building2') {
             steps {
-                   echo 'Hello my Jenkins'
+                dir ('docker7') {
+                      sh "docker build -t application:$GIT_BRANCH-$BUILD_NUMBER . "
+                }
             } 
             post {
          	  failure {
          		script {
-         			env.STAGEMESSAGE = "Failure at stage MESSAGE"}
+         			env.STAGEMESSAGE = "Failure at stage BUILDING2"}
          	}
          }
         }
