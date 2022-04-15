@@ -40,7 +40,7 @@ pipeline {
          }
          stage('deploy'){
            steps {
-                dir ('flask_webapp') {
+                dir ('docker') {
                         sh ('docker stack deploy --compose-file docker-compose.yml stack-nginxtest --with-registry-auth') }
 
                 }
