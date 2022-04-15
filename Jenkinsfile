@@ -53,25 +53,8 @@ pipeline {
                 }
            }
    }
-   post {
-     success {
-        withCredentials([string(credentialsId: 'botsecret', variable: 'TOKEN'),
-        		  string(credentialsId: 'idchatncdev22', variable: 'CHAT_ID')])
-            {
-                sh  ("""
-                        curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*$JOB_NAME* : RESULT *Branch*: $GIT_BRANCH *Build* : OK'
-                    """)
-            }
-     }
+  
 
-     failure {
-        withCredentials([string(credentialsId: 'botsecret', variable: 'TOKEN'),
-        		  string(credentialsId: 'idchatncdev22', variable: 'CHAT_ID')])
-            {
-               sh  ("""
-                       curl -s -X POST https://api.telegram.org/bot${TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d parse_mode=markdown -d text='*$JOB_NAME* : RESULT  *Branch*: $GIT_BRANCH *Build* : NOT ok: ${env.STAGEBUILD} ${env.STAGEPUSH} ${env.STAGEPDEPLOY}'
-                    """)
-            }
-       }
+     
    }
 }
